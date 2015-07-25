@@ -305,7 +305,7 @@ hr {
 	width:100%;
 	position:relative;
 	
-	background: url(../img/bg1.jpg) no-repeat top center;
+	background: url(../img/piscinas1.jpg) no-repeat top center;
 }
 
 #intro.intro {
@@ -413,12 +413,16 @@ hr {
 .team-social .social-deviantart a{background: #8da356;}
 .team-social .social-google a{background: #000;}
 .team-social .social-vimeo a{background: #51a6d3;}
+.team-social .social-linkedin a{background: #007BB6;}
+.team-social .social-instagram a{background: #3F729B;}
 .team-social .social-facebook a:hover{background: #4893ce;}
 .team-social .social-twitter a:hover{background: #82e6ff;}
 .team-social .social-dribble a:hover{background: #f769a0;}
 .team-social .social-deviantart a:hover{background: #adc376;}
 .team-social .social-google a:hover{background: #333;}
 .team-social .social-vimeo a:hover{background: #71c6f3;}
+.team-social .social-linkedin a:hover{background: #4893ce;}
+.team-social .social-instagram a:hover{background: #4893ce;}
 
 
 /* ===========================
@@ -505,12 +509,16 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 .company-social .social-deviantart a{background: #8da356;}
 .company-social .social-google a{background: #000;}
 .company-social .social-vimeo a{background: #51a6d3;}
+.company-social .social-linkedin a{background: #007BB6;}
+.company-social .social-instagram a{background: #3F729B;}
 .company-social .social-facebook a:hover{background: #4893ce;}
 .company-social .social-twitter a:hover{background: #82e6ff;}
 .company-social .social-dribble a:hover{background: #f769a0;}
 .company-social .social-deviantart a:hover{background: #adc376;}
 .company-social .social-google a:hover{background: #333;}
 .company-social .social-vimeo a:hover{background: #71c6f3;}
+.company-social .social-linkedin a:hover{background: #3873ae;}
+.company-social .social-instagram a:hover{background: #3873ae;}
 
 
 
@@ -641,7 +649,7 @@ Parallax
 }
 
 @-webkit-keyframes pulse {    
-    0 {
+    0% {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
