@@ -1,13 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <meta name="description" content="Porto Bellas Piscinas e Jardins é uma empresa de manutenção de piscinas e jardins, deixando a sua piscina limpa e o seu jardim florido com uma bela paisagem.">
+    <meta name="author" content="Michel Pereira">
+    <meta name="keywords" content="porto bellas manutenção piscinas jardins jardinagem paisagismo jardim peças venda fornecimento">
+    <meta name="robots" content="porto, bellas, manutenção, piscinas, jardins, jardinagem, paisagismo, jardim, peças, venda, fornecimento">
+    <meta name="googlebot" content="porto, bellas, manutenção, piscinas, jardins, jardinagem, paisagismo, jardim, peças, venda, fornecimento">
     <link rel="shortcut icon" href="img/iconePortoBellas.ico">
 
     <title>Porto Bellas - Piscinas, Jardinagem e Paisagismo</title>
@@ -43,20 +46,21 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#intro">Home</a></li>
-        <li><a href="#about">Quem Somos</a></li>
-		<li><a href="#service">Serviços</a></li>
-		<li><a href="#contact">Contato</a></li>
-<!--        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Example menu</a></li>
-            <li><a href="#">Example menu</a></li>
-            <li><a href="#">Example menu</a></li>
-          </ul>
-        </li>-->
-      </ul>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#intro">Home</a></li>
+                    <li><a href="#about">Quem Somos</a></li>
+                    <li><a href="#service">Serviços</a></li>
+                    <li><a href="#carreira">Carreira</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <!--        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Example menu</a></li>
+                                <li><a href="#">Example menu</a></li>
+                                <li><a href="#">Example menu</a></li>
+                              </ul>
+                            </li>-->
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -221,6 +225,43 @@ Verificamos e atendemos aos seguintes itens básicos com aprofundamentos <b>bact
 	</section>
 	<!-- /Section: services -->
 	
+    <section id="carreira" class="home-section text-center">
+		<div class="heading-about">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
+					<h2>CARREIRA</h2>
+					<i class="fa fa-2x fa-angle-down"></i>
+
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+
+		<div class="row">
+			<div class="col-lg-2 col-lg-offset-5">
+				<hr class="marginbot-50">
+			</div>
+		</div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wow bounceInUp" data-wow-delay="0.2s">
+                    <div class="team boxed-grey">
+                        Se você é um profissional dedicado, dinâmico e honesto e deseja trabalhar na <b>Porto Bellas - Piscinas e Jardins</b>, envie o seu currículo para o e-mail<b> <a href="mailto:rh@portobellas.com.br">rh@portobellas.com.br</a></b>. No campo "Assunto", descreva o cargo desejado. O seu currículo será encaminhado ao responsável para análise.
+
+</b>
+                    </div>
+                </div>
+            </div>
+
+		</div>
+	</section>
+	<!-- /Section: about -->
 
 	
 
@@ -274,6 +315,7 @@ Verificamos e atendemos aos seguintes itens básicos com aprofundamentos <b>bact
                                 <!--<option value="na" selected="">Selecione</option>-->
                                 <option value="Sugestões/ Elogios">Sugestões/ Elogio</option>
                                 <option value="Orçamento">Orçamento</option>
+                                <option value="Materiais">Fornecimento de Materiais</option>
                                 <option value="Reclamação">Reclamação</option>
                             </select>
                         </div>
@@ -302,13 +344,15 @@ Verificamos e atendemos aos seguintes itens básicos com aprofundamentos <b>bact
 				<address>
 				  <strong>Porto Bellas - Piscinas e Jardins</strong><br>
 				  Rua Teodoro da Silva, 562/ 101 - Vila Isabel<br>
-				  Rio de Janeiro, RJ - CEP 20.560-005<br>
-				  <abbr title="Phone">Telefones:</abbr> (21) 3129-8939 / (21) 7876-6488
+				  Rio de Janeiro, RJ, Brasil - CEP 20.560-005<br>
+                                  <abbr title="Phone">Telefones:</abbr> (21) 3129-8939 / (21) 7876-6488 / <br/>(22) 7813-1648<br/>
+                                  <img src="img/whatsapp-icon.png" title="Whatsapp">(21) 96422-2002
 				</address>
 
 				<address>
 				  <strong>E-mail</strong><br>
-				  <a href="mailto:contato@portobellas.com.br">contato@portobellas.com.br</a>
+                                  <a href="mailto:contato@portobellas.com.br">contato@portobellas.com.br</a>
+
 				</address>	
 				<address>
 				  <strong>Estamos nas redes sociais</strong><br>
