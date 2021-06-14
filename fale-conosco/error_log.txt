@@ -1,0 +1,6 @@
+[31-Mar-2021 16:06:28 America/Sao_Paulo] PHP Notice:  Undefined index: secure in /home/portobellas/public_html/fale-conosco/index.php on line 32
+[02-Apr-2021 14:45:04 America/Sao_Paulo] PHP Notice:  Undefined index: secure in /home/portobellas/public_html/fale-conosco/index.php on line 32
+[07-Apr-2021 05:29:27 America/Sao_Paulo] PHP Notice:  Undefined index: secure in /home/portobellas/public_html/fale-conosco/index.php on line 32
+[17-Apr-2021 17:12:54 America/Sao_Paulo] PHP Notice:  Undefined index: secure in /home/portobellas/public_html/fale-conosco/index.php on line 32
+[25-Apr-2021 15:28:15 America/Sao_Paulo] PHP Notice:  Undefined index: secure in /home/portobellas/public_html/fale-conosco/index.php on line 32
+[29-May-2021 01:00:25 America/Sao_Paulo] PHP Notice:  Undefined index: secure in /home/portobellas/public_html/fale-conosco/index.php on line 32

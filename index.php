@@ -1,4 +1,41 @@
-﻿<!DOCTYPE html>
+﻿<?php
+
+//require("fonts/class.salt.php");
+//require("phpmailer/src/phpmailer.php");
+
+date_default_timezone_set('America/Sao_Paulo');
+
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
+ini_set('session.use_trans_sid', 0);
+error_reporting(E_ALL);
+
+function curl_info($url){
+    $ch = curl_init();
+    curl_setopt( $ch, CURLOPT_URL, $url );
+    curl_setopt( $ch, CURLOPT_HEADER, 1);
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+    curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT, $timeout );
+    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1 );
+
+    $content = curl_exec( $ch );
+    $info = curl_getinfo( $ch );
+
+    return $info;
+}
+
+if( fsockopen( 'www.google.com.br' , 80 , $errno , $errstr , 30 ) ){
+	$site_https = "https://www.portobellas.com.br/";
+//	echo "Está on-line";
+} else {
+	$site_https = " ";
+}
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,19 +48,27 @@
     <meta name="keywords" content="porto bellas manutenção piscinas jardins jardinagem paisagismo jardim peças venda fornecimento">
     <meta name="robots" content="porto, bellas, manutenção, piscinas, jardins, jardinagem, paisagismo, jardim, peças, venda, fornecimento">
     <meta name="googlebot" content="porto, bellas, manutenção, piscinas, jardins, jardinagem, paisagismo, jardim, peças, venda, fornecimento">
-    <link rel="shortcut icon" href="img/iconePortoBellas.ico">
+<?php    echo "<link rel='shortcut icon' href='".$site_https."img/iconePortoBellas.ico'>"; ?>
 
     <title>Porto Bellas - Piscinas, Jardinagem e Paisagismo</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $site_https; ?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/animate.css" rel="stylesheet" />
+    <link href="<?php echo $site_https; ?>font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo $site_https; ?>css/animate.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
-    <link href="css/style.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
+    <link href="<?php echo $site_https; ?>css/style.css" rel="stylesheet">
+	<link href="<?php echo $site_https; ?>color/default.css" rel="stylesheet">
+
+	<script type="text/javascript">
+		
+		function abreJanelaDownload(url){
+			window.open(url, "_blank");
+		}
+
+	</script>
 
 </head>
 
@@ -40,7 +85,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="img/logoPortoBellas4.png" title="Porto Bellas" width="200" height="150" />
+                    <img src="<?php echo $site_https; ?>img/logoPortoBellas4.png" title="Porto Bellas" width="200" height="150" />
                 </a>
             </div>
 
@@ -50,8 +95,14 @@
                     <li class="active"><a href="#intro">Home</a></li>
                     <li><a href="#about">Quem Somos</a></li>
                     <li><a href="#service">Serviços</a></li>
+                    <li>
+						<a href="#infoCovid" style="font-size: 24px; color: red; text-shadow: 0 0 8px #FFFF, 0 0 8px #fff" class="btn btn-light" alt="Informações sobre o Coronavirus" title="Informações sobre o Coronavirus">
+				            COVID-19
+						</a>
+	                </li>
                     <li><a href="#carreira">Carreira</a></li>
-                    <li><a href="#contact">Contato</a></li>
+<!--                    <li><a href="#contact">Contato</a></li> -->
+                    <li><a href="fale-conosco/">Contato</a></li>
                     <!--        <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                               <ul class="dropdown-menu">
@@ -61,7 +112,9 @@
                               </ul>
                             </li>-->
                 </ul>
+
             </div>
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -261,19 +314,15 @@ Verificamos e atendemos aos seguintes itens básicos com aprofundamentos <b>bact
 
 		</div>
 	</section>
-	<!-- /Section: about -->
 
-	
-
-	<!-- Section: contact -->
-    <section id="contact" class="home-section text-center">
-		<div class="heading-contact">
+    <section id="infoCovid" class="home-section text-center">
+		<div class="heading-about">
 			<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 					<div class="section-heading">
-					<h2>CONTATO</h2>
+					<h2 style="color:red; color: red; text-shadow: 0 0 8px #FFFF, 0 0 8px #fff;">COVID-19</h2>
 					<i class="fa fa-2x fa-angle-down"></i>
 
 					</div>
@@ -284,93 +333,28 @@ Verificamos e atendemos aos seguintes itens básicos com aprofundamentos <b>bact
 		</div>
 		<div class="container">
 
-		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
-			</div>
-		</div>
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="boxed-grey">
-                <form id="contact-form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Nome</label>
-                            <input type="text" class="form-control" id="name" placeholder="Preencha o nome" required="required" name="nome" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                E-mail</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Preencha o e-mail" required="required" /></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Motivo</label>
-                            <select id="subject" name="motivo" class="form-control" required="required">
-                                <!--<option value="na" selected="">Selecione</option>-->
-                                <option value="Sugestões/ Elogios">Sugestões/ Elogio</option>
-                                <option value="Orçamento">Orçamento</option>
-                                <option value="Materiais">Fornecimento de Materiais</option>
-                                <option value="Reclamação">Reclamação</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Messagem</label>
-                            <textarea name="mensagem" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Messagem"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
-                            Enviar</button>
-                    </div>
-                </div>
-                </form>
-            </div>
-        </div>
-		
-		<div class="col-lg-4">
-			<div class="widget-contact">
-				<h5>Endereço</h5>
-				
-				<address>
-				  <strong>Porto Bellas - Piscinas e Jardins</strong><br>
-				  Rua Teodoro da Silva, 562/ 101 - Vila Isabel<br>
-				  Rio de Janeiro, RJ, Brasil - CEP 20.560-005<br>
-                                  <abbr title="Phone">Telefones:</abbr> (21) 3129-8939 / (21) 7876-6488 / <br/>(22) 7813-1648<br/>
-                                  <img src="img/whatsapp-icon.png" title="Whatsapp">(21) 96422-2002
-				</address>
+			<table border="0" width="100%">
+				<tr>
+					<td>
+						<img src="img/corona.jpg" width="600" height="800">
+					</td>
+					<td valign="top" align="center">
+						<label>Baixar a imagem</label><br>
+						<a href="javascript:abreJanelaDownload('<?php echo $site_https; ?>img/corona.jpg')" download="Coronavirus">
+							<img src="img/download.png" width="50" height="50">
+						</a>
+					</td>
+				</tr>
+			</table>
 
-				<address>
-				  <strong>E-mail</strong><br>
-                                  <a href="mailto:contato@portobellas.com.br">contato@portobellas.com.br</a>
 
-				</address>	
-				<address>
-				  <strong>Estamos nas redes sociais</strong><br>
-                       	<ul class="company-social">
-                            <li class="social-facebook"><a href="https://www.facebook.com/PortoBellas" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="https://www.twitter.com/BellasPorto" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <!--<li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>-->
-                            <!--<li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>-->
-                        </ul>	
-				</address>					
-			
-			</div>	
-		</div>
-    </div>	
-
-		</div>
+		</div> <!-- container -->
 	</section>
-	<!-- /Section: contact -->
+	<!-- /Section: about -->
+
+	
+
+	<!-- Section: contact -->
 
 	<footer>
 		<div class="container">
@@ -390,100 +374,13 @@ Verificamos e atendemos aos seguintes itens básicos com aprofundamentos <b>bact
 	</footer>
 
     <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/wow.min.js"></script>
+    <script src="<?php echo $site_https; ?>js/jquery.min.js"></script>
+    <script src="<?php echo $site_https; ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo $site_https; ?>js/jquery.easing.min.js"></script>	
+	<script src="<?php echo $site_https; ?>js/jquery.scrollTo.js"></script>
+	<script src="<?php echo $site_https; ?>js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
-<?php
-
-require("phpmailer/class.phpmailer.php");
-error_reporting(E_ALL);
-error_reporting(E_STRICT);
-date_default_timezone_set('America/Sao_Paulo');
-$ip = getenv("REMOTE_ADDR");
-
-$nome=$_POST['nome'];
-$email = $_POST['email'];
-$motivo = $_POST['motivo'];
-$mensagem = $_POST['mensagem'];
-
-$mail = new PHPMailer();
-$mail->SetLanguage("br");
-$mail->IsMail();
-$mail->IsHTML(true);
-$mail->From = "contato@portobellas.com.br";  //email do remetente
-$mail->FromName = "Porto Bellas";   //Nome de formatado do remetente
-$mail->Host = "mail.portobellas.com.br";    //Seu servidor SMTP
-$mail->Mailer = "smtp";                 //Usando protocolo SMTP
-$mail->AddAddress("contato@portobellas.com.br");     //O destino do email
-//$mail->AddAddress("contato@portobellas.com.br");     //O destino do email
-$mail->AddBCC($email);					//Envio com cópia oculta
-$mail->Subject = "Porto Bellas"; //Assunto do email
-
-$font = "arial";
-$tamanho = 2;
-$imagem = "http://www.portobellas.com.br/img/logoPortoBellas.png";
-
-$mail->Body = "<br>"; //Body of the message
-
-$mail->Body .= "<font face=$font size='$tamanho'>";
-
-
-$mail->Body .= "<font face=$font size='3'><b>Porto Bellas - ".$motivo."</b></font>";
-$mail->Body .= "<br><hr>";
-$mail->Body .= "<br><br>";
-$mail->Body .= "Prezado Sr(a) ".$nome;
-$mail->Body .= "<br><br>";
-$mail->Body .= "Agradecemos pelo seu contato. Retornaremos o mais rápido possível. Segue abaixo os dados informados: ";
-$mail->Body .= "<br><br>";
-$mail->Body .= "<font face=$font size='$tamanho'><b>Nome</b>: ".$nome. "</font><br>";
-$mail->Body .= "<font face=$font size='$tamanho'><b>E-mail</b>: ".$email. "</font><br>";
-$mail->Body .= "<font face=$font size='$tamanho'><b>Motivo do contato</b>: ".$motivo. "</font><br>";
-$mail->Body .= "<font face=$font size='$tamanho'><b>Mensagem</b>: <br/>".$mensagem. "</font><br>";
-$mail->Body .= "<br><br>";
-$mail->Body .= "<font face=$font size='$tamanho'>Atenciosamente,</font><br><br>";
-$mail->Body .= "<font face=$font size='$tamanho'>Equipe Porto Bellas</font><br>";
-$mail->Body .= "<br><hr size='2'>";
-$mail->Body .= "<tr>";
-$mail->Body .= "    <td valign='top'>";
-$mail->Body .= "        <a href='http://www.portobellas.com.br' target='_blank' title='Acesse o site'><img src='http://www.portobellas.com.br/img/logoPortoBellas4.png' width='130' height='100'></a>";
-$mail->Body .= "    </td>";
-$mail->Body .= "    <td valign='top'>";
-$mail->Body .= "        <font color='#333333'><br>Porto Bellas</font><br><br>";
-$mail->Body .= "        <font size='$tamanho'>Telefones: (21) 3129-8939 / (21) 7876-6488</font><br>";
-$mail->Body .= "        <a href='http://www.portobellas.com.br' target='_blank'><font size='2'>http://www.portobellas.com.br</font></a><br>";
-$mail->Body .= "    </td>";
-$mail->Body .= "</tr>";
-$mail->Body .= "<tr>";
-$mail->Body .= "    <td>&nbsp;";
-$mail->Body .= "    </td>";
-$mail->Body .= "    <td valign='top'>";
-$mail->Body .= "        <a href='mailto:contato@portobellas.com.br' target='_blank'><img src='http://www.portobellas.com.br/img/email.png'></a>";
-$mail->Body .= "        <a href='https://www.facebook.com/PortoBellas' target='_blank'><img src='http://www.portobellas.com.br/img/facebook.png'></a>";
-$mail->Body .= "        <a href='https://www.twitter.com/BellasPorto' target='_blank'><img src='http://www.portobellas.com.br/img/profile_twitter.png'></a>";
-$mail->Body .= "    </td>";
-$mail->Body .= "</tr>";
-$mail->Body .= "<br><br>";
-
-
-$mail->Body.='</font>';
-
-$mail->SMTPAuth = "true";
-$mail->Username = "contato@portobellas.com.br"; // Utilize uma conta valida para seu servidor
-$mail->Password = "portobellas";
-
-
-if(!$mail->Send()){ //Check for result of sending mail
-    echo "Mensagem não enviada. Erro: ".$mail->ErrorInfo;
-}else{
-    echo "Mensagem enviada com sucesso!";
-}
-
-
-?>
+    <script src="<?php echo $site_https; ?>js/custom.js"></script>
 
 </body>
 
